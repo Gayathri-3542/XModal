@@ -43,7 +43,6 @@ const XModal = () => {
 
     const { username, email, phone, dob } = formData;
 
-    // ✅ Corrected order of validations for Cypress tests
     if (!username.trim()) {
       alert("Please fill out the Username field.");
       return;
@@ -58,25 +57,24 @@ const XModal = () => {
       return;
     }
 
-    // ✅ Phone validation fixed
+   
     if (!phone.trim()) {
-      alert("Please fill out the Phone Number field."); // Corrected alert
+      alert("Please fill out the Phone Number field."); 
       return;
     }
     if (!/^\d{10}$/.test(phone)) {
-      alert("Invalid phone number. Please enter a 10-digit phone number."); // Corrected alert
+      alert("Invalid phone number. Please enter a 10-digit phone number."); 
       return;
     }
 
-    // ✅ DOB validation fixed
     if (!dob.trim()) {
-      alert("Please fill out the Date of Birth field."); // Corrected alert
+      alert("Please fill out the Date of Birth field."); 
       return;
     }
     const selectedDate = new Date(dob);
     const today = new Date();
     if (selectedDate > today) {
-      alert("Invalid Date of Birth. Date of birth cannot be in the future."); // Corrected alert
+      alert("Invalid Date of Birth. Date of birth cannot be in the future."); 
       return;
     }
 
