@@ -38,88 +38,52 @@ const XModal = () => {
   };
 
   // Handle submit and validations
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   const { username, email, phone, dob } = formData;
-
-  //   if (!username.trim()) {
-  //     alert("Please fill out the Username field.");
-  //     return;
-  //   }
-  //   if (!email.trim()) {
-  //     alert("Please fill out the Email field.");
-  //     return;
-  //   }
-  //   if (!phone.trim()) {
-  //     alert("Please fill out the Phone Number field.");
-  //     return;
-  //   }
-  //   if (!dob.trim()) {
-  //     alert("Please fill out the Date of Birth field.");
-  //     return;
-  //   }
-
-  //   if (!email.includes("@")) {
-  //     alert("Invalid email. Please check your email address.");
-  //     return;
-  //   }
-
-  //   if (!/^\d{10}$/.test(phone)) {
-  //     alert("Invalid phone number. Please enter a 10-digit phone number.");
-  //     return;
-  //   }
-
-  //   const selectedDate = new Date(dob);
-  //   const today = new Date();
-  //   if (selectedDate > today) {
-  //     alert("Invalid Date of Birth. Please enter a valid date.");
-  //     return;
-  //   }
-
-  //   alert("Form submitted successfully!");
-  //   setIsModalOpen(false);
-  //   resetForm();
-  // };
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const { username, email, phone, dob } = formData;
+    const { username, email, phone, dob } = formData;
 
-  // 1️⃣ Check for empty fields first
-  if (!username.trim() || !email.trim() || !phone.trim() || !dob.trim()) {
-    if (!username.trim()) alert("Please fill out the Username field.");
-    else if (!email.trim()) alert("Please fill out the Email field.");
-    else if (!phone.trim()) alert("Please fill out the Phone Number field.");
-    else if (!dob.trim()) alert("Please fill out the Date of Birth field.");
-    return;
-  }
+    if (!username.trim()) {
+      alert("Please fill out the Username field.");
+      return;
+    }
+    if (!email.trim()) {
+      alert("Please fill out the Email field.");
+      return;
+    }
+    if (!phone.trim()) {
+      alert("Please fill out the Phone Number field.");
+      return;
+    }
+    if (!dob.trim()) {
+      alert("Please fill out the Date of Birth field.");
+      return;
+    }
 
-  // 2️⃣ Email validation
-  if (!email.includes("@")) {
-    alert("Invalid email. Please check your email address.");
-    return;
-  }
+    if (!email.includes("@")) {
+      alert("Invalid email. Please check your email address.");
+      return;
+    }
 
-  // 3️⃣ Phone number validation (exactly 10 digits)
-  if (!/^\d{10}$/.test(phone)) {
-    alert("Invalid phone number. Please enter a 10-digit phone number.");
-    return;
-  }
+    if (!/^\d{10}$/.test(phone)) {
+      alert("Invalid phone number. Please enter a 10-digit phone number.");
+      return;
+    }
 
-  // 4️⃣ Date of Birth validation (must not be in the future)
-  const selectedDate = new Date(dob);
-  const today = new Date();
-  if (selectedDate > today) {
-    alert("Invalid Date of Birth. Please enter a valid date.");
-    return;
-  }
+    const selectedDate = new Date(dob);
+    const today = new Date();
+    if (selectedDate > today) {
+      alert("Invalid Date of Birth. Date of birth cannot be in the future.");
+      return;
+    }
 
-  // 5️⃣ Success
-  alert("Form submitted successfully!");
-  setIsModalOpen(false);
-  resetForm();
-};
+    alert("Form submitted successfully!");
+    setIsModalOpen(false);
+    resetForm();
+  };
+  
+
+  
 
 
   return (
@@ -184,65 +148,3 @@ const XModal = () => {
 
 export default XModal;
 
-// import React, { useState } from "react";
-// import "./XModal.css"
-
-
-// const XModal = () => {    
-    
-  
-   
-    
-//     return (
-//         <div>
-//         <h1>User Details Modal</h1>
-//         <button>Open Form</button>
-
-//         <div className="modal">
-//           <div className="modal-content">
-//             <form>
-//             <h1>Fill Details</h1>
-//             <div>
-//                 <label>Username: </label><br/>
-//                 <input
-//                   type="text"
-//                   id="username"
-//                 />
-//               </div>
-//               <div>
-//                 <label>Email Address: </label><br/>
-//                 <input
-//                   type="email"
-//                   id="email"
-//                 />
-//               </div>
-
-//               <div>
-//                 <label>Phone Number: </label><br/>
-//                 <input
-//                   type="tel"
-//                   id="phone"
-//                 />
-//               </div>
-
-//               <div>
-//                 <label>Date of Birth: </label><br/>
-//                 <input
-//                   type="date"
-//                   id="dob"
-//                 />
-//               </div>
-
-
-//               <button className="submit-button" type="submit">
-//                 Submit
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-     
-            
-//         </div>
-//     )
-// }
-// export default XModal;
