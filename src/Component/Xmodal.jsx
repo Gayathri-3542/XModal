@@ -38,49 +38,89 @@ const XModal = () => {
   };
 
   // Handle submit and validations
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   const { username, email, phone, dob } = formData;
+
+  //   if (!username.trim()) {
+  //     alert("Please fill out the Username field.");
+  //     return;
+  //   }
+  //   if (!email.trim()) {
+  //     alert("Please fill out the Email field.");
+  //     return;
+  //   }
+  //   if (!phone.trim()) {
+  //     alert("Please fill out the Phone Number field.");
+  //     return;
+  //   }
+  //   if (!dob.trim()) {
+  //     alert("Please fill out the Date of Birth field.");
+  //     return;
+  //   }
+
+  //   if (!email.includes("@")) {
+  //     alert("Invalid email. Please check your email address.");
+  //     return;
+  //   }
+
+  //   if (!/^\d{10}$/.test(phone)) {
+  //     alert("Invalid phone number. Please enter a 10-digit phone number.");
+  //     return;
+  //   }
+
+  //   const selectedDate = new Date(dob);
+  //   const today = new Date();
+  //   if (selectedDate > today) {
+  //     alert("Invalid Date of Birth. Please enter a valid date.");
+  //     return;
+  //   }
+
+  //   alert("Form submitted successfully!");
+  //   setIsModalOpen(false);
+  //   resetForm();
+  // };
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const { username, email, phone, dob } = formData;
+  const { username, email, phone, dob } = formData;
 
-    if (!username.trim()) {
-      alert("Please fill out the Username field.");
-      return;
-    }
-    if (!email.trim()) {
-      alert("Please fill out the Email field.");
-      return;
-    }
-    if (!phone.trim()) {
-      alert("Please fill out the Phone Number field.");
-      return;
-    }
-    if (!dob.trim()) {
-      alert("Please fill out the Date of Birth field.");
-      return;
-    }
+  // 1️⃣ Check for empty fields first
+  if (!username.trim() || !email.trim() || !phone.trim() || !dob.trim()) {
+    if (!username.trim()) alert("Please fill out the Username field.");
+    else if (!email.trim()) alert("Please fill out the Email field.");
+    else if (!phone.trim()) alert("Please fill out the Phone Number field.");
+    else if (!dob.trim()) alert("Please fill out the Date of Birth field.");
+    return;
+  }
 
-    if (!email.includes("@")) {
-      alert("Invalid email. Please check your email address.");
-      return;
-    }
+  // 2️⃣ Email validation
+  if (!email.includes("@")) {
+    alert("Invalid email. Please check your email address.");
+    return;
+  }
 
-    if (!/^\d{10}$/.test(phone)) {
-      alert("Invalid phone number. Please enter a 10-digit phone number.");
-      return;
-    }
+  // 3️⃣ Phone number validation (exactly 10 digits)
+  if (!/^\d{10}$/.test(phone)) {
+    alert("Invalid phone number. Please enter a 10-digit phone number.");
+    return;
+  }
 
-    const selectedDate = new Date(dob);
-    const today = new Date();
-    if (selectedDate > today) {
-      alert("Invalid Date of Birth. Please enter a valid date.");
-      return;
-    }
+  // 4️⃣ Date of Birth validation (must not be in the future)
+  const selectedDate = new Date(dob);
+  const today = new Date();
+  if (selectedDate > today) {
+    alert("Invalid Date of Birth. Please enter a valid date.");
+    return;
+  }
 
-    alert("Form submitted successfully!");
-    setIsModalOpen(false);
-    resetForm();
-  };
+  // 5️⃣ Success
+  alert("Form submitted successfully!");
+  setIsModalOpen(false);
+  resetForm();
+};
+
 
   return (
     <div className="app-container">
@@ -143,8 +183,6 @@ const XModal = () => {
 };
 
 export default XModal;
-
-
 
 // import React, { useState } from "react";
 // import "./XModal.css"
