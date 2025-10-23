@@ -43,10 +43,10 @@ const XModal = () => {
 
     const { username, email, phone, dob } = formData;
 
-    if (!username.trim()) {
-      alert("Please fill out the Username field.");
-      return;
-    }
+    // if (!username.trim()) {
+    //   alert("Please fill out the Username field.");
+    //   return;
+    // }
 
     if (!email.trim()) {
       alert("Please fill out the Email field.");
@@ -75,6 +75,11 @@ const XModal = () => {
     const today = new Date();
     if (selectedDate > today) {
       alert("Invalid Date of Birth. Date of birth cannot be in the future."); 
+      return;
+    }
+    
+    if (!username.trim()) {
+      alert("Please fill out the Username field.");
       return;
     }
 
