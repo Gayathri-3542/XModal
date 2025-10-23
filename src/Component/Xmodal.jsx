@@ -102,7 +102,7 @@ const XModal = () => {
           <div className="modal-content">
             <h2>Fill Details</h2>
             <form onSubmit={handleSubmit}>
-              <label>Username:</label>
+              <label style={{textAlign:"center"}}>Username:</label>
               <input
                 type="text"
                 id="username"
@@ -111,7 +111,7 @@ const XModal = () => {
                 onChange={handleChange}
               />
 
-              <label>Email Address:</label>
+              <label style={{textAlign:"center"}}>Email Address:</label>
               <input
                 type="email"
                 id="email"
@@ -120,7 +120,7 @@ const XModal = () => {
                 onChange={handleChange}
               />
 
-              <label>Phone Number:</label>
+              <label style={{textAlign:"center"}}>Phone Number:</label>
               <input
                 type="tel"
                 id="phone"
@@ -129,7 +129,7 @@ const XModal = () => {
                 onChange={handleChange}
               />
 
-              <label>Date of Birth:</label>
+              <label style={{textAlign:"center"}}>Date of Birth:</label>
               <input
                 type="date"
                 id="dob"
