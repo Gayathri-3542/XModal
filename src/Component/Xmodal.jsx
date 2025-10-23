@@ -74,7 +74,7 @@ const XModal = () => {
     const selectedDate = new Date(dob);
     const today = new Date();
     if (selectedDate > today) {
-      alert("Invalid Date of Birth. Date of birth cannot be in the future."); 
+      alert("Invalid Date of Birth.Date of birth cannot be in the future."); 
       return;
     }
     
